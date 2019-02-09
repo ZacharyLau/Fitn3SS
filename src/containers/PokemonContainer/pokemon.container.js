@@ -4,6 +4,13 @@ import { connect } from "react-redux";
 
 import { actions } from "../../modules/User/User.actions";
 
+/**
+ * Zack is tcool
+ *
+ *
+ *
+ */
+
 class Screen extends Component {
   render() {
     return (
