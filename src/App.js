@@ -1,37 +1,30 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import { connect } from "react-redux";
+import { Provider } from "react-redux";
+import firebase from "firebase";
+import PokemonContainer from "./containers/PokemonContainer/pokemon.container";
+import configureStore from "./store";
+const store = configureStore();
 
-import { actions } from "./modules/pokemon/pokemon.actions";
+class App extends Component {
+  componentWillMount() {
+    const config = {
+      apiKey: "AIzaSyB89iuIMh718M0OEYlvLLQ4n6OjivMPx6M",
+      authDomain: "fitn3ss-3790e.firebaseapp.com",
+      databaseURL: "https://fitn3ss-3790e.firebaseio.com",
+      projectId: "fitn3ss-3790e",
+      storageBucket: "fitn3ss-3790e.appspot.com",
+      messagingSenderId: "327827263698"
+    };
+    firebase.initializeApp(config);
+  }
 
-class Screen extends Component {
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "white",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        <Text>New project</Text>
-        <TouchableOpacity onPress={() => this.props.getPokemon("ditto")}>
-          <View style={{ height: 50, width: 200, backgroundColor: "red" }}>
-            <Text>Tap this for some pokemon</Text>
-          </View>
-        </TouchableOpacity>
-        <Text>{this.props.move ? this.props.move : "Loading...."}</Text>
-      </View>
+      <Provider store={store}>
+        <PokemonContainer />
+      </Provider>
     );
   }
 }
 
-export const mapStateToProps = props => {
-  return { move: props.pokemonReducer.move };
-};
-
-export default connect(
-  mapStateToProps,
-  actions
-)(Screen);
+export default App;
