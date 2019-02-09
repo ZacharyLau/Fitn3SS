@@ -1,0 +1,3 @@
+rootProject.name = 'Fitn3SS'
+
+include ':app'
