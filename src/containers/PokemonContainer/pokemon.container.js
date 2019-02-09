@@ -2,26 +2,21 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 
+import style from "./pokemon.style";
+
 import { actions } from "../../modules/User/User.actions";
 
 class Screen extends Component {
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "white",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
+      <View style={style.container}>
         <Text>New project</Text>
         <TouchableOpacity
           onPress={() =>
             this.props.loginUser({ email: "B@b.com", password: "111111" })
           }
         >
-          <View style={{ height: 50, width: 200, backgroundColor: "red" }}>
+          <View style={style.button}>
             <Text>Tap this for some pokemon</Text>
           </View>
         </TouchableOpacity>
