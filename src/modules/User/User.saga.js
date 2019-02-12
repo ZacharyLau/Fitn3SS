@@ -1,5 +1,5 @@
 import { takeEvery, put, call } from "redux-saga/effects";
-import { LOGIN_USER, LOGIN_SUCCESS } from "./User.actions";
+import { LOGIN_USER, LOGIN_SUCCESS, LOGIN_FAIL } from "./User.actions";
 import * as queries from "./User.queries"; //firebase queries
 
 function* loginUser(action) {
@@ -9,14 +9,15 @@ function* loginUser(action) {
       action.payload.email,
       action.payload.password
     );
+    put({ type: LOGIN_USER });
+
     yield put({
       type: LOGIN_SUCCESS,
-      payload: response.user.uid
+      payload: response.user
     });
-    console.log(response);
   } catch (e) {
-    console.log(e);
-    debugger;
+    yield put({ type: LOGIN_FAIL, payload: e.message });
+    //debugger;
   }
 }
 

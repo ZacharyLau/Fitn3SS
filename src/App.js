@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import firebase from "firebase";
 import PokemonContainer from "./containers/PokemonContainer/pokemon.container";
+import AuthContainer from "./containers/AuthContainer/login.container";
 import configureStore from "./store";
 const store = configureStore();
 
@@ -21,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <PokemonContainer />
+        <AuthContainer />
       </Provider>
     );
   }

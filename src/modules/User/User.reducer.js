@@ -1,9 +1,31 @@
-import { LOGIN_SUCCESS } from "./User.actions";
+import {
+  LOGIN_SUCCESS,
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED,
+  LOGIN_USER,
+  LOGIN_FAIL
+} from "./User.actions";
 
-export default (state = {}, action = {}) => {
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: "",
+  user: null,
+  loading: false
+};
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case EMAIL_CHANGED:
+      return { ...state, email: action.payload };
+    case PASSWORD_CHANGED:
+      return { ...state, password: action.payload };
+    case LOGIN_USER:
+      return { ...state, error: "", loading: true };
     case LOGIN_SUCCESS:
-      return { ...state, uid: action.payload };
+      return { ...state, user: action.payload, loading: false };
+    case LOGIN_FAIL:
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }
