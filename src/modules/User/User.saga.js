@@ -17,7 +17,7 @@ function* loginUser(action) {
       payload: response.user
     });
 
-    yield call(NavigationService.navigate, "Pokemon");
+    yield call(NavigationService.navigate, "Menu");
   } catch (e) {
     yield put({ type: LOGIN_FAIL, payload: e.message });
     //debugger;

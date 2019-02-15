@@ -54,6 +54,7 @@ class LoginScreen extends Component {
           </CardSection>
           <CardSection>
             <Input
+              secureTextEntry
               label="Password"
               placeholder="Password"
               onChangeText={this.onPasswordChange.bind(this)}
