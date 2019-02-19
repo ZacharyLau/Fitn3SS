@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    marginVertical: 20
+    margin: 2
   },
   item: {
     backgroundColor: "#4D243D",

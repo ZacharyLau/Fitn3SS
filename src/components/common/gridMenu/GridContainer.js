@@ -1,8 +1,9 @@
 import React from "react";
-import { Text, View, Dimensions } from "react-native";
+import { View, Dimensions } from "react-native";
+import { GridCell } from "./GridCell";
 
 const GridContainer = ({ item, numColumns }) => {
-  height = Dimensions.get("window").width / numColumns;
+  height = Dimensions.get("window").width / numColumns - 14;
   if (item.empty === true) {
     return (
       <View
@@ -17,15 +18,13 @@ const GridContainer = ({ item, numColumns }) => {
 
   return (
     <View style={[styles.containerStyle, { height: height }]}>
-      <Text style={styles.itemTextStyle}>{item.key}</Text>
+      <GridCell item={item} height={height} />
     </View>
   );
 };
 
 const styles = {
   containerStyle: {
-    backgroundColor: "#4D243D",
-    alignItems: "center",
     justifyContent: "center",
     flex: 1,
     margin: 5

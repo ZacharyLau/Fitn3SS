@@ -6,4 +6,4 @@ export * from "./Input";
 export * from "./Spinner";
 export * from "./Xmargin";
 export * from "./Confirm";
-export * from "./gridItems/GridContainer";
+export * from "./gridMenu/GridMenu";

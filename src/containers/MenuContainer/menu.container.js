@@ -1,55 +1,25 @@
 import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
-import { GridContainer } from "../../components/common/gridItems/GridContainer";
+import { GridMenu } from "../../components/common/gridMenu/GridMenu";
 
 import styles from "./menu.style";
 
 const data = [
-  { key: "A" },
-  { key: "B" },
-  { key: "C" },
-  { key: "D" },
-  { key: "E" },
-  { key: "F" },
-  { key: "G" },
-  { key: "H" },
-  { key: "I" },
-  { key: "J" },
-  { key: "K" }
-  // { key: 'L' },
+  {
+    key: "Bench Press",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/fitn3ss-3790e.appspot.com/o/exercises%2Fbench_press.jpeg?alt=media&token=5fd9c10e-9db9-4089-93da-f2b3a881d649"
+  }
+  // { key: "Chin Up", image: require("../../pic/chin_up.jpeg") },
+  // { key: "Shoulder Press", image: require("../../pic/shoulder_press.jpeg") },
+  // { key: "Squats", image: require("../../pic/squats.jpeg") },
+  // { key: "Dead Lift", image: require("../../pic/dead_lift.jpeg") }
 ];
 
 const numColumns = 2;
 
-const formatData = (data, numColumns) => {
-  const numberOfFullRows = Math.floor(data.length / numColumns);
-
-  let numberOfElementsLastRow = data.length - numberOfFullRows * numColumns;
-  while (
-    numberOfElementsLastRow !== numColumns &&
-    numberOfElementsLastRow !== 0
-  ) {
-    data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
-    numberOfElementsLastRow++;
-  }
-
-  return data;
-};
-
 class Menu extends Component {
-  renderItem = ({ item }) => {
-    return <GridContainer item={item} numColumns={numColumns} />;
-  };
-
   render() {
-    return (
-      <FlatList
-        data={formatData(data, numColumns)}
-        style={styles.container}
-        renderItem={this.renderItem}
-        numColumns={numColumns}
-      />
-    );
+    return <GridMenu items={data} numColumns={numColumns} />;
   }
 }
 
