@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { GridMenu } from "../../components/common/gridMenu/GridMenu";
 
-import styles from "./menu.style";
+//import styles from "./menu.style";
 
 const data = [
   {
