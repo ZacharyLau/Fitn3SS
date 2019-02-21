@@ -6,16 +6,19 @@ import { all, fork } from "redux-saga/effects";
 // Reducers
 import pokemonReducer from "../modules/pokemon/";
 import userReducer from "../modules/User/";
+import menuReducer from "../modules/Menu/";
 
 // Sagas
 import { pokemonSaga } from "./pokemon/pokemon.saga";
 import { userSaga } from "./User/User.saga";
+import { menuSaga } from "./Menu/Menu.saga";
 
 export const appReducers = combineReducers({
   pokemonReducer,
-  userReducer
+  userReducer,
+  menuReducer
 });
 
 export const rootSaga = function* rootSaga() {
-  yield all([fork(pokemonSaga), fork(userSaga)]); //every time the project imports a saga, it must fork here like the example
+  yield all([fork(pokemonSaga), fork(userSaga), fork(menuSaga)]); //every time the project imports a saga, it must fork here like the example
 };

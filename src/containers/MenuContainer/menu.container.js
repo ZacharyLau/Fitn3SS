@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { GridMenu } from "../../components/common/gridMenu/GridMenu";
 
-//import styles from "./menu.style";
+//test tab view ******************************************************************
+import { Text, View, StyleSheet, Dimensions } from "react-native";
+import { createMaterialTopTabNavigator } from "react-navigation";
 
 const data = [
   {
@@ -17,10 +19,23 @@ const data = [
 
 const numColumns = 2;
 
-class Menu extends Component {
+export class Menu extends Component {
   render() {
     return <GridMenu items={data} numColumns={numColumns} />;
   }
 }
 
-export default Menu;
+export class shit extends Component {
+  render() {
+    return (
+      <View>
+        <Text>shit</Text>
+      </View>
+    );
+  }
+}
+
+export default createMaterialTopTabNavigator({
+  Menu: { screen: Menu },
+  shit: { screen: shit }
+});

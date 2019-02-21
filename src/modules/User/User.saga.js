@@ -1,5 +1,6 @@
 import { takeEvery, put, call } from "redux-saga/effects";
 import { LOGIN_USER, LOGIN_SUCCESS, LOGIN_FAIL } from "./User.actions";
+import { LOAD_EXERCISE } from "../Menu/Menu.actions";
 import * as queries from "./User.queries"; //firebase queries
 import NavigationService from "../../modules/Navigation/NavigationService";
 
