@@ -6,7 +6,7 @@ import Menu from "../../containers/MenuContainer/menu.container";
 
 const RootStack = createStackNavigator(
   { Login: LoginScreen, Menu: Menu },
-  { initialRouteName: "Menu" }
+  { initialRouteName: "Login" }
 );
 
 export default createAppContainer(RootStack);

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { GridMenu } from "../../components/common/gridMenu/GridMenu";
-
-//test tab view ******************************************************************
 import { Text, View, StyleSheet, Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation";
 

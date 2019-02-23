@@ -19,6 +19,7 @@ function* loginUser(action) {
     });
 
     yield call(NavigationService.navigate, "Menu");
+    yield put({ type: LOAD_EXERCISE });
   } catch (e) {
     yield put({ type: LOGIN_FAIL, payload: e.message });
     //debugger;

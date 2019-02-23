@@ -11,7 +11,7 @@ import menuReducer from "../modules/Menu/";
 // Sagas
 import { pokemonSaga } from "./pokemon/pokemon.saga";
 import { userSaga } from "./User/User.saga";
-import { menuSaga } from "./Menu/Menu.saga";
+import { exerciseMenuSaga } from "./Menu/Menu.saga";
 
 export const appReducers = combineReducers({
   pokemonReducer,
@@ -20,5 +20,5 @@ export const appReducers = combineReducers({
 });
 
 export const rootSaga = function* rootSaga() {
-  yield all([fork(pokemonSaga), fork(userSaga), fork(menuSaga)]); //every time the project imports a saga, it must fork here like the example
+  yield all([fork(pokemonSaga), fork(userSaga), fork(exerciseMenuSaga)]); //every time the project imports a saga, it must fork here like the example
 };

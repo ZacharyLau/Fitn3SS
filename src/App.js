@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import firebase from "firebase";
 
 import AppContainer from "./modules/Navigation/Navigation";
-import navigationService from "./modules/Navigation/NavigationService";
 import configureStore from "./store";
 import NavigationService from "./modules/Navigation/NavigationService";
 const store = configureStore();

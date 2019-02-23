@@ -1,8 +1,10 @@
-import { LOAD_EXERCISE } from "./Menu.actions";
+import { LOAD_EXERCISE_SUCCESS } from "./Menu.actions";
 
-export default (state = "", action) => {
+const INITIAL_STATE = {};
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LOAD_EXERCISE:
+    case LOAD_EXERCISE_SUCCESS:
       return { ...state, exercise: action.payload };
     default:
       return state;
