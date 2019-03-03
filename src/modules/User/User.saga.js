@@ -2,7 +2,6 @@ import { takeEvery, put, call } from "redux-saga/effects";
 import { LOGIN_USER, LOGIN_SUCCESS, LOGIN_FAIL } from "./User.actions";
 import { LOAD_EXERCISE } from "../Menu/Menu.actions";
 import * as queries from "./User.queries"; //firebase queries
-import NavigationService from "../../modules/Navigation/NavigationService";
 
 function* loginUser(action) {
   try {
@@ -18,7 +17,6 @@ function* loginUser(action) {
       payload: response.user
     });
 
-    yield call(NavigationService.navigate, "Menu");
     yield put({ type: LOAD_EXERCISE });
   } catch (e) {
     yield put({ type: LOGIN_FAIL, payload: e.message });
