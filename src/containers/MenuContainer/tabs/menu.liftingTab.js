@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import _ from "lodash";
 
-import { GridMenu } from "../../../components/common/gridMenu/GridMenu";
+import { GridMenu } from "../gridMenu/GridMenu";
 import { connect } from "react-redux";
-import { actions } from "../../../modules/Menu/Menu.actions";
 
 const numColumns = 2;
 var data = [];
@@ -42,7 +41,4 @@ const mapStateToProps = state => {
   return { exercises };
 };
 
-export default connect(
-  mapStateToProps,
-  actions
-)(liftingTab);
+export default connect(mapStateToProps)(liftingTab);

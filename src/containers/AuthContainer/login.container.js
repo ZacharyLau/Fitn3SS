@@ -6,7 +6,7 @@ import {
   Button,
   Spinner
 } from "../../components/common";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View } from "react-native";
 import { connect } from "react-redux";
 import styles from "./Auth.style";
 import { actions } from "../../modules/User/User.actions";

@@ -6,4 +6,3 @@ export * from "./Input";
 export * from "./Spinner";
 export * from "./Xmargin";
 export * from "./Confirm";
-export * from "./gridMenu/GridMenu";
