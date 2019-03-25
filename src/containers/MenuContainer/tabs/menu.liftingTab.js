@@ -1,19 +1,29 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import _ from "lodash";
 
 import { GridMenu } from "../gridMenu/GridMenu";
 import { connect } from "react-redux";
 
+import { actions } from "../../../modules/Menu/Menu.actions";
+
 const numColumns = 2;
 var data = [];
-class liftingTab extends Component {
+class liftingTab extends PureComponent {
+  gridCellOnPress = () => {
+    this.props.chooseExercise(this.props.selectedExercise);
+  };
   componentWillMount() {
     data = convertExerciseJsonToArray(this.props.exercises);
-    console.log(data);
   }
 
   render() {
-    return <GridMenu items={data} numColumns={numColumns} />;
+    return (
+      <GridMenu
+        items={data}
+        numColumns={numColumns}
+        onPress={this.gridCellOnPress.bind(this)}
+      />
+    );
   }
 }
 
@@ -22,23 +32,26 @@ const convertExerciseJsonToArray = exercises => {
   _.forEach(exercises, function(exercise) {
     arrayItem = {
       key: `${exercise.exerciseName}`,
-      image: `${exercise.exerciseMenuPic}`
+      image: `${exercise.exerciseMenuPic}`,
+      type: `${exercise.exerciseType}`
     };
     array.push(arrayItem);
   });
-
   return array;
 };
 
 const mapStateToProps = state => {
   const exercises = _.map(
     state.menuReducer.exercises.payload.lifting,
-    (exercises, exerciseName) => {
-      return { ...exercises, exerciseName };
+    exercises => {
+      return { ...exercises };
     }
   );
 
   return { exercises };
 };
 
-export default connect(mapStateToProps)(liftingTab);
+export default connect(
+  mapStateToProps,
+  actions
+)(liftingTab);

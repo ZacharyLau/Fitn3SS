@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import _ from "lodash";
-
-import { GridMenu } from "../gridMenu/GridMenu";
 import { connect } from "react-redux";
 
+import { actions } from "../../../modules/Exercising/Exercising.actions";
+import { GridMenu } from "../gridMenu/GridMenu";
+
 const numColumns = 2;
+
 var data = [];
 class cardioTab extends Component {
+  onGridCellPress(exerciseName) {
+    this.props.chooseExercise(exerciseName);
+  }
+
   componentWillMount() {
     data = convertExerciseJsonToArray(this.props.exercises);
-    console.log(data);
   }
 
   render() {
@@ -22,7 +27,8 @@ const convertExerciseJsonToArray = exercises => {
   _.forEach(exercises, function(exercise) {
     arrayItem = {
       key: `${exercise.exerciseName}`,
-      image: `${exercise.exerciseMenuPic}`
+      image: `${exercise.exerciseMenuPic}`,
+      type: `${exercise.exerciseType}`
     };
     array.push(arrayItem);
   });
@@ -41,4 +47,7 @@ const mapStateToProps = state => {
   return { exercises };
 };
 
-export default connect(mapStateToProps)(cardioTab);
+export default connect(
+  mapStateToProps,
+  actions
+)(cardioTab);

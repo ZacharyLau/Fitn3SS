@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Dimensions } from "react-native";
-import { GridCell } from "./GridCell";
+import GridCell from "./GridCell";
 
 const GridContainer = ({ item, numColumns }) => {
   height = Dimensions.get("window").width / numColumns - 14;
