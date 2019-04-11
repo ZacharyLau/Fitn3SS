@@ -4,7 +4,7 @@ import _ from "lodash";
 import { GridMenu } from "../gridMenu/GridMenu";
 import { connect } from "react-redux";
 
-import { actions } from "../../../modules/Menu/Menu.actions";
+///import { actions } from "../../../modules/Menu/Menu.actions";
 
 const numColumns = 2;
 var data = [];
@@ -53,5 +53,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  actions
+  null
 )(liftingTab);

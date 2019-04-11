@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 
-import { actions } from "../../../modules/Exercising/Exercising.actions";
+//import { actions } from "../../../modules/ExerciseSetting/ExerciseSetting.actions";
 import { GridMenu } from "../gridMenu/GridMenu";
 
 const numColumns = 2;
@@ -24,6 +24,7 @@ class cardioTab extends Component {
 
 const convertExerciseJsonToArray = exercises => {
   var array = [];
+
   _.forEach(exercises, function(exercise) {
     arrayItem = {
       key: `${exercise.exerciseName}`,
@@ -49,5 +50,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  actions
+  null
 )(cardioTab);

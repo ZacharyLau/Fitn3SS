@@ -1,16 +1,16 @@
-import { createSelector } from "reselect";
+import { createSelector, createStructuredSelector } from "reselect";
 import _ from "lodash";
 
 const cardioSelector = state => state.menuReducer.exercises.payload.cardio;
 const liftingSelector = state => state.menuReducer.exercises.payload.lifting;
-const selectedExercise = state => state.exercisingReducer.selectedExercise;
+const selectedExercise = state => state.exerciseSettingReducer.selectedExercise;
 
 const getSelectedExercise = (
   cardioSelector,
   liftingSelector,
   selectedExercise
 ) => {
-  var exerciseDetail;
+  let exerciseDetail;
   switch (selectedExercise.type) {
     case "lifting":
       exerciseDetail = _.find(liftingSelector, function(exe) {
@@ -29,6 +29,18 @@ const getSelectedExercise = (
       return exerciseDetail;
   }
 };
+
+// *************************  structure selector instead of normal selector *************************
+//import { createSelector, createStructuredSelector } from "reselect";
+
+// export default createStructuredSelector({
+//   cardioExercises: cardioSelector,
+//   liftingExercises: liftingSelector,
+//   selectedExercise,
+//   selectedExerciseWithDetails: getSelectedExercise
+// });
+// *************************  structure selector instead of normal selector *************************
+// *************************************  End of the template ***************************************
 
 export default createSelector(
   cardioSelector,

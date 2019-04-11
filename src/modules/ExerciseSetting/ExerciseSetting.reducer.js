@@ -1,4 +1,4 @@
-import { EXERCISE_SELECTED } from "./Exercising.actions";
+import { EXERCISE_SELECTED } from "./ExerciseSetting.actions";
 
 const INITIAL_STATE = { selectedExercise: {} };
 

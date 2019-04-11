@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 
-import { actions } from "../../../modules/Exercising/Exercising.actions";
+import { actions } from "../../../modules/ExerciseSetting/ExerciseSetting.actions";
 import navigationService from "../../../modules/Navigation/NavigationService";
 
 class GridCell extends Component {

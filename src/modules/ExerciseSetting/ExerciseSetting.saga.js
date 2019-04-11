@@ -1,6 +1,6 @@
 import { takeEvery, put, call, take } from "redux-saga/effects";
-import NavigationService from "../../modules/Navigation/NavigationService";
-import { CHOOSE_EXERCISE, EXERCISE_SELECTED } from "./Exercising.actions";
+import NavigationService from "../Navigation/NavigationService";
+import { CHOOSE_EXERCISE, EXERCISE_SELECTED } from "./ExerciseSetting.actions";
 
 function* chooseExercise() {
   //   yield call(console.log, selectedExercise);
@@ -8,6 +8,6 @@ function* chooseExercise() {
   //yield call(NavigationService.navigate("ExerciseSetting"));
 }
 
-export function* exercisingSaga() {
+export function* exerciseSettingSaga() {
   takeEvery(CHOOSE_EXERCISE, chooseExercise);
 }

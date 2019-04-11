@@ -7,19 +7,19 @@ import { all, fork } from "redux-saga/effects";
 import pokemonReducer from "../modules/pokemon/";
 import userReducer from "../modules/User/";
 import menuReducer from "../modules/Menu/";
-import exercisingReducer from "../modules/Exercising";
+import exerciseSettingReducer from "../modules/ExerciseSetting";
 
 // Sagas
 import { pokemonSaga } from "./pokemon/pokemon.saga";
 import { userSaga } from "./User/User.saga";
 import { exerciseMenuSaga } from "./Menu/Menu.saga";
-import { exercisingSaga } from "./Exercising/Exercising.saga";
+import { exerciseSettingSaga } from "./ExerciseSetting/ExerciseSetting.saga";
 
 export const appReducers = combineReducers({
   pokemonReducer,
   userReducer,
   menuReducer,
-  exercisingReducer
+  exerciseSettingReducer
 });
 
 export const rootSaga = function* rootSaga() {
@@ -27,6 +27,6 @@ export const rootSaga = function* rootSaga() {
     fork(pokemonSaga),
     fork(userSaga),
     fork(exerciseMenuSaga),
-    fork(exercisingSaga)
+    fork(exerciseSettingSaga)
   ]); //every time the project imports a saga, it must fork here like the example
 };
